@@ -196,14 +196,14 @@ for(let i=1; i < wrappers.length; i++){
 
 //Reposition pieces 
 var posX = 100
-var posY = 130
+var posY = 140
 
 for(i= 0 ; i < wrappers.length; i++){
     if( i>0){
-        posY = 250;
+        posY = 280;
     }
     if(i>=3){
-        posY = 360;
+        posY = 420;
     }
     if(i==2 || i == 4){
         posX = 250;

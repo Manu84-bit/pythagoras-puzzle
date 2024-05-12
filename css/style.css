@@ -1,5 +1,5 @@
 :root {
-    --scale: 2.5;
+    --scale: 2;
 }
 
 * {
@@ -24,7 +24,7 @@ background-color: rgb(48, 48, 48);
   
 }
 
-.container h5{
+.container h6{
     color: azure;
 }
 .container p{
@@ -36,7 +36,7 @@ background-color: rgb(48, 48, 48);
 }
 
 #board {
-    margin-top: 2rem;
+    margin-top: 1rem;
     background-image: url("../img/pythagoras_template.png");
     background-size:calc(641px / var(--scale));
     width: calc(641px / var(--scale));
@@ -87,8 +87,8 @@ background-color: rgb(48, 48, 48);
 }
 
 .dot {
-    height: 10px;
-    width: 10px;
+    height: 16px;
+    width: 16px;
     background-color: #1E88E5;
     position: absolute;
     border-radius: 100px;
@@ -113,7 +113,7 @@ background-color: rgb(48, 48, 48);
     height: 20px;
     background-color: #1E88E5;
     top: -20px;
-    left: calc(50%);
+    left: calc(53%);
     z-index: -1;
 }
 

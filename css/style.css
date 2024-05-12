@@ -38,9 +38,9 @@ background-color: rgb(48, 48, 48);
 #board {
     margin-top: 3rem;
     background-image: url("../img/pythagoras_template1.png");
-    background-size:calc(641px / var(--scale));
-    width: calc(641px / var(--scale));
-    height: calc(706px / var(--scale));
+    background-size:calc(644px / var(--scale));
+    width: calc(644px / var(--scale));
+    height: calc(710px / var(--scale));
     z-index: -3;
 }
 
@@ -59,17 +59,17 @@ background-color: rgb(48, 48, 48);
 
 #square {
     background-image: url('../img/square.png');
-    background-size: calc(197px/ var(--scale));
-    width: calc(197px/ var(--scale));
-    height:calc(197px/ var(--scale));
+    background-size: calc(199px/ var(--scale));
+    width: calc(199px/ var(--scale));
+    height:calc(199px/ var(--scale));
     z-index: 15;
 }
 
 .polys {
     background-image: url("../img/poly1.png");
-    background-size: calc(169px/ var(--scale));
-    width: calc(169px/ var(--scale));
-    height: calc(187px/ var(--scale));
+    background-size: calc(168px/ var(--scale));
+    width: calc(168px/ var(--scale));
+    height: calc(189px/ var(--scale));
 }
 
 #poly1 {

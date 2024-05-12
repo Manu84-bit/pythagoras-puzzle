@@ -11,15 +11,17 @@
 
 html {
 background-color: rgb(48, 48, 48);
+/* overflow: hidden; */
 }
 
 .container {
-    padding-top: 2rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 50px;
-    max-height: 100vh;
+    max-height: auto;
+  
 }
 
 .container h5{
@@ -33,13 +35,9 @@ background-color: rgb(48, 48, 48);
  padding-bottom: 1rem;
 }
 
-/* #canvas {
-    margin-top: 1rem;
-} */
-
 #board {
-    margin-top: 1rem;
-    background-image: url("../img/Pitágoras_2.png");
+    margin-top: 2rem;
+    background-image: url("../img/pythagoras_template.png");
     background-size:calc(641px / var(--scale));
     width: calc(641px / var(--scale));
     height: calc(706px / var(--scale));
@@ -60,7 +58,7 @@ background-color: rgb(48, 48, 48);
 }
 
 #square {
-    background-image: url('../img/square1.png');
+    background-image: url('../img/square.png');
     background-size: calc(196px/ var(--scale));
     width: calc(196px/ var(--scale));
     height:calc(196px/ var(--scale));
@@ -134,3 +132,43 @@ background-color: rgb(48, 48, 48);
     -webkit-user-select: none; /* Safari */
             user-select: none; /* Every other browser */
 }
+
+@media only screen 
+and (max-device-width: 820px)
+{ 
+    
+#board {
+    margin-left: calc(800px / var(--scale));
+    background-image: url("../img/pythagoras_template.png");
+    background-size:calc(641px / var(--scale));
+    width: calc(641px / var(--scale));
+    height: calc(706px / var(--scale));
+    z-index: -3;
+  }
+
+}
+
+@media only screen 
+and (max-device-width: 586px)
+{ 
+    .container {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 50px;
+        max-height: auto;
+        overflow:auto;
+    }
+#board {
+    margin-left: 0;
+    margin-top: calc(900px / var(--scale));
+    background-image: url("../img/pythagoras_template.png");
+    background-size:calc(641px / var(--scale));
+    width: calc(641px / var(--scale));
+    height: calc(706px / var(--scale));
+    z-index: -3;
+  }
+
+}
+

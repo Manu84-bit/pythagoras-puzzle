@@ -30,43 +30,7 @@ function repositionElement(x, y, wrapper) {
 //     return 0;
 // }
 
-
 // drag support
-function draggable(el){
-    el.addEventListener('mousedown', function (event) {
-        event.preventDefault();
-
-        if (event.target.className.indexOf("dot") > -1) {
-            return;
-        }
-    
-        initX = this.offsetLeft;
-        initY = this.offsetTop;
-        mousePressX = event.clientX;
-        mousePressY = event.clientY;
-    
-    
-        function eventMoveHandler(event) {
-            repositionElement(initX + (event.clientX - mousePressX),
-                initY + (event.clientY - mousePressY), el);
-        }
-    
-        el.addEventListener('mousemove', eventMoveHandler, false);
-        el.addEventListener('mouseup', function eventEndHandler() {
-            el.removeEventListener('mousemove', eventMoveHandler, false);
-            window.removeEventListener('mouseup', eventEndHandler);
-            el.removeEventListener('mouseup', eventEndHandler);
-
-        }, false);
-    
-    }, false);
-}
-
-
-// for(let i=0; i < wrappers.length; i++){
-//     draggable(wrappers[i]);
-// }
-
 function dragElement(elmnt) {
     var pos1 = 0,
       pos2 = 0,
@@ -113,7 +77,46 @@ function dragElement(elmnt) {
   for(let i=0; i < wrappers.length; i++){
     dragElement(wrappers[i]);
 }
-// handle rotation
+
+
+/* FOR MOBILE:  listen to the touchMove event,
+  every time it fires, grab the location
+  of touch and assign it to box */
+
+function mobileDrag(el){
+
+  el.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    if (e.target.className.indexOf("dot") > -1) {
+        return;
+    }
+
+// grab the location of touch
+    var touchLocation = e.targetTouches[0];
+    
+    // assign box new coordinates based on the touch.
+    el.style.left = touchLocation.pageX + 'px';
+    el.style.top = touchLocation.pageY + 'px';
+  });
+  
+  /* record the position of the touch
+  when released using touchend event.
+  This will be the drop position. */
+  
+  el.addEventListener('touchend', function(e) {
+    // current box position.
+    var x = parseInt(box.style.left);
+    var y = parseInt(box.style.top);
+  });
+  
+}
+
+for(let i=0; i < wrappers.length; i++){
+    mobileDrag(wrappers[i]);
+}
+
+
+// Handle rotation
 function rotateBox(deg, el) {
     el.style.transform = `rotate(${deg}deg)`;
 }
@@ -157,15 +160,50 @@ for(let i=1; i < wrappers.length; i++){
 }
 
 
+//FOR MOBILE ROTATION
+function mobileRotable(el, querySelector, rotateId){
+    var rotate = document.getElementById(rotateId);
+    
+    rotate.addEventListener('touchmove', function(e){
+        var touchLocation = e.targetTouches[0];
+    
+        var arrow = document.querySelector(querySelector);
+        var arrowRects = arrow.getBoundingClientRect();
+        var arrowX = arrowRects.left + arrowRects.width / 2;
+        var arrowY = arrowRects.top + arrowRects.height / 2;
+
+        function eventMoveHandler() {
+            var angle = Math.atan2(touchLocation.clientY - arrowY, touchLocation.clientX - arrowX) + Math.PI / 2;
+            rotateBox(angle * 180 / Math.PI, el);
+        }
+        window.addEventListener('touchmove', eventMoveHandler, false);
+
+        window.addEventListener('touchend', function eventEndHandler() {
+            window.removeEventListener('touchmove', eventMoveHandler, false);
+            window.removeEventListener('touchend', eventEndHandler);
+        }, false);
+        
+    }, false);
+}
+
+mobileRotable(squarePiece, "#square", "rotate");
+for(let i=1; i < wrappers.length; i++){
+    mobileRotable(wrappers[i], "#poly" + `${i}`, "rotate" + `${i}`);
+}
+
+
+
+
 //Reposition pieces 
 var posX = 100
-var posY = 120
+var posY = 130
+
 for(i= 0 ; i < wrappers.length; i++){
     if( i>0){
-        posY = 240;
+        posY = 250;
     }
     if(i>=3){
-        posY = 340;
+        posY = 360;
     }
     if(i==2 || i == 4){
         posX = 250;
@@ -175,4 +213,8 @@ for(i= 0 ; i < wrappers.length; i++){
     }
     repositionElement(posX, posY, wrappers[i]);
 }
+
+
 }
+
+

@@ -1,5 +1,5 @@
 :root {
-    --scale: 2;
+    --scale: 2.5;
 }
 
 * {
@@ -28,7 +28,7 @@ background-color: rgb(48, 48, 48);
     color: azure;
 }
 .container p{
- margin-top: 4rem;
+ margin-top: 6rem;
  font-size: 1.2rem;
  padding-inline: 3rem;
  color: azure;
@@ -36,7 +36,7 @@ background-color: rgb(48, 48, 48);
 }
 
 #board {
-    margin-top: 1rem;
+    margin-top: 3rem;
     background-image: url("../img/pythagoras_template.png");
     background-size:calc(641px / var(--scale));
     width: calc(641px / var(--scale));
@@ -151,6 +151,9 @@ and (max-device-width: 820px)
 @media only screen 
 and (max-device-width: 586px)
 { 
+    :root {
+        --scale: 2;
+    }
     .container {
         padding-top: 1rem;
         display: flex;

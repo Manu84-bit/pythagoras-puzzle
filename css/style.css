@@ -28,7 +28,7 @@ background-color: rgb(48, 48, 48);
     color: azure;
 }
 .container p{
- margin-top: 6rem;
+ margin-top: 8rem;
  font-size: 1.2rem;
  padding-inline: 3rem;
  color: azure;
@@ -36,11 +36,11 @@ background-color: rgb(48, 48, 48);
 }
 
 #board {
-    margin-top: 3rem;
+    margin-top: 2rem;
     background-image: url("../img/pythagoras_template1.png");
-    background-size:calc(644px / var(--scale));
-    width: calc(644px / var(--scale));
-    height: calc(710px / var(--scale));
+    background-size:calc(642px / var(--scale));
+    width: calc(642px / var(--scale));
+    height: calc(707px / var(--scale));
     z-index: -3;
 }
 
@@ -59,17 +59,17 @@ background-color: rgb(48, 48, 48);
 
 #square {
     background-image: url('../img/square.png');
-    background-size: calc(199px/ var(--scale));
-    width: calc(199px/ var(--scale));
-    height:calc(199px/ var(--scale));
+    background-size: calc(200px/ var(--scale));
+    width: calc(200px/ var(--scale));
+    height:calc(200px/ var(--scale));
     z-index: 15;
 }
 
 .polys {
     background-image: url("../img/poly1.png");
-    background-size: calc(168px/ var(--scale));
-    width: calc(168px/ var(--scale));
-    height: calc(189px/ var(--scale));
+    background-size: calc(169px/ var(--scale));
+    width: calc(169px/ var(--scale));
+    height: calc(188px/ var(--scale));
 }
 
 #poly1 {
@@ -134,25 +134,21 @@ background-color: rgb(48, 48, 48);
 }
 
 @media only screen 
-and (max-device-width: 820px)
+and (max-device-width: 910px)
 { 
     
 #board {
-    margin-left: calc(800px / var(--scale));
-    background-image: url("../img/pythagoras_template.png");
-    background-size:calc(641px / var(--scale));
-    width: calc(641px / var(--scale));
-    height: calc(706px / var(--scale));
-    z-index: -3;
+    margin-top: calc(1000px / var(--scale));
+   
   }
 
 }
 
 @media only screen 
-and (max-device-width: 586px)
+and (max-device-width: 700px)
 { 
     :root {
-        --scale: 2;
+        --scale: 2.2;
     }
     .container {
         padding-top: 1rem;
@@ -163,15 +159,8 @@ and (max-device-width: 586px)
         max-height: auto;
         overflow:auto;
     }
-#board {
-    margin-left: 0;
-    margin-top: calc(900px / var(--scale));
-    background-image: url("../img/pythagoras_template.png");
-    background-size:calc(641px / var(--scale));
-    width: calc(641px / var(--scale));
-    height: calc(706px / var(--scale));
-    z-index: -3;
-  }
-
+    .container p{
+        margin-top: 4rem;
+    }
 }
 

@@ -105,8 +105,8 @@ function mobileDrag(el){
   
   el.addEventListener('touchend', function(e) {
     // current box position.
-    var x = parseInt(box.style.left);
-    var y = parseInt(box.style.top);
+    var x = parseInt(el.style.left);
+    var y = parseInt(el.style.top);
   });
   
 }
